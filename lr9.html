@@ -3,21 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вывод на HTML</title>
+    <title>Три задания по JavaScript</title>
+    <style>
+        .task {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .task h2 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-    <div id="output"></div> <!-- Элемент, куда будет выведен результат -->
+    <!-- Задание 1 -->
+    <div class="task">
+        <h2>Задание 1: Сумма чисел массива</h2>
+        <div id="output1"></div>
+    </div>
+
+    <!-- Задание 2 -->
+    <div class="task">
+        <h2>Задание 2: Текущий день недели</h2>
+        <div id="output2"></div>
+    </div>
+
+    <!-- Задание 3 -->
+    <div class="task">
+        <h2>Задание 3: Двухмерный массив дней недели</h2>
+        <div id="output3"></div>
+    </div>
 
     <script>
-        // Создаем массив
-        let arr = ['a', 'b', 'c', 'd'];
+        // ==============================================
+        // ЗАДАНИЕ 1: Сумма чисел массива
+        // ==============================================
+        // Создаем массив чисел
+        let numbers = [3, 2, 2, 5];
+        
+        // Складываем элементы массива
+        let sum = numbers[0] + numbers[1];
+        let sum1 = numbers[2] + numbers[3];
+        
+        // Формируем строку для вывода
+        let result1 = "Сумма чисел [3, 2, 2, 5]: " + sum+", "+sum1;
+        
+        // Выводим результат
+        document.getElementById('output1').textContent = result1;
 
-        // Складываем элементы массива и создаем строку
-        let result = arr[0] + arr[1] + ', ' + arr[2] + arr[3];
+        // ==============================================
+        // ЗАДАНИЕ 2: Объект с днями недели
+        // ==============================================
+        // Создаем объект с днями недели (понедельник - 1)
+        const weekDays = {
+            1: "Понедельник",
+            2: "Вторник",
+            3: "Среда",
+            4: "Четверг",
+            5: "Пятница",
+            6: "Суббота",
+            7: "Воскресенье"
+        };
+        
+        // Получаем текущий день недели (0-6, где 0 - воскресенье)
+        const today = new Date().getDay();
+        
+        // Преобразуем в наш формат (1-7, где 1 - понедельник)
+        const currentDayNumber = today === 0 ? 7 : today;
+        
+        // Получаем название дня
+        const currentDayName = weekDays[currentDayNumber];
+        
+        // Выводим результат
+        document.getElementById('output2').textContent = 
+            `Сегодня: ${currentDayName} (номер дня: ${currentDayNumber})`;
 
-        // Находим элемент с id "output" и устанавливаем его содержимое
-        document.getElementById('output').textContent = result;
+        // ==============================================
+        // ЗАДАНИЕ 3: Двухмерный массив дней недели
+        // ==============================================
+        // Создаем двухмерный массив с днями недели
+        const weekDaysMultiLang = {
+            'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+            'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        };
+        
+        // Получаем нужные дни
+        const mondayRu = weekDaysMultiLang['ru'][0]; // Понедельник по-русски
+        const wednesdayEn = weekDaysMultiLang['en'][2]; // Среда по-английски
+        
+        // Выводим результат
+        document.getElementById('output3').innerHTML = `
+            Понедельник по-русски: <strong>${mondayRu}</strong><br>
+            Среда по-английски: <strong>${wednesdayEn}</strong>
+        `;
     </script>
 
 </body>
