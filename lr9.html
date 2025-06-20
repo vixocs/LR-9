@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вывод на HTML</title>
+</head>
+<body>
+
+    <div id="output"></div> <!-- Элемент, куда будет выведен результат -->
+
+    <script>
+        // Создаем массив
+        let arr = ['a', 'b', 'c', 'd'];
+
+        // Складываем элементы массива и создаем строку
+        let result = arr[0] + arr[1] + ', ' + arr[2] + arr[3];
+
+        // Находим элемент с id "output" и устанавливаем его содержимое
+        document.getElementById('output').textContent = result;
+    </script>
+
+</body>
+</html>
